@@ -18,35 +18,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {//Ruta de bienvenida 
     return view('welcome');
 });
-
-Route::get('/testView', function () {//Ruta de vista de testView
-    return view('testView'); //Nombre de la vista que esta en la carpeta de "views"
-});
-
-//
-Route::get('/texto', function () {
-    echo "Hi World";
-    echo"<h1>Hola Mundo</h1>";
-});
-
-//
-Route::get('/echo', function () {
-    echo view('test2');
-});
-
-//
-Route::get('/rutas', function () {
-    return "Podemos Tener Rutas tipo GET,POST, DELETE , PATCH";
-});
-
-Route::get('/custom',function(){
-    $msj="Mensaje desde el servidor";
-    $id="500";
-    return view('custom',['msj'=> $msj,"identi"=>$id,"A"=>29]);
-});
-
-Route::get('/contact',function(){
-    return view('contacto');
-})->name('contact');
-
-Route::get('/testdb',[TestController::class, 'test']);//Ruta para obtener el controlador que llama a una funcion que esta dentro de la clase del controlador
