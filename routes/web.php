@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +20,18 @@ Route::get('/', function () {//Ruta de bienvenida
     return view('index');
 })-> name('index');
 
+/*
 Route::get('/products',function(){
-    return view('products_index');
+    c
 })-> name('products');
+*/
+Route::get('/indexProducts',[ProductController::class,'index'])->name('products'); //llama la primera funcion del controlador
+Route::get('/indexProducts',[ProductController::class,'create'])->name('pcreate'); //llama la primera funcion del controlador
+Route::get('/indexProducts',[ProductController::class,'store {$strore}'])->name('pstore'); //llama la primera funcion del controlador
+Route::get('/indexProducts',[ProductController::class,'edit'])->name('pedit'); //llama la primera funcion del controlador
+Route::get('/indexProducts',[ProductController::class,'update {$store,$product}'])->name('pupdate'); //llama la primera funcion del controlador
+Route::get('/indexProducts',[ProductController::class,'show'])->name('pshow'); //llama la primera funcion del controlador
+Route::get('/indexProducts',[ProductController::class,'destroy {$product}'])->name('pdestroy'); //llama la primera funcion del controlador
 
 Route::get('/clients',function(){
     return view('clients_index');
