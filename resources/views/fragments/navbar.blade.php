@@ -68,7 +68,7 @@
     <nav>
         <p>
             <a href="{{route('index')}}">Inicio</a>
-            <a href="{{route('products')}}">Productos</a>
+            <a href="{{route('products.index')}}">Productos</a>
             <a href="{{route('clients')}}">Clientes</a>
             <a href="{{route('sales')}}">Ventas</a>
         </p>

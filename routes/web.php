@@ -24,16 +24,17 @@ Route::get('/', function () {//Ruta de bienvenida
 Route::get('/products',function(){
     c
 })-> name('products');
-*/
+
 Route::get('/indexProducts',[ProductController::class,'index'])->name('products'); //llama la primera funcion del controlador
-Route::get('/indexProducts',[ProductController::class,'create'])->name('pcreate'); //llama la primera funcion del controlador
-Route::get('/indexProducts',[ProductController::class,'store {$strore}'])->name('pstore'); //llama la primera funcion del controlador
-Route::get('/indexProducts',[ProductController::class,'edit'])->name('pedit'); //llama la primera funcion del controlador
-Route::get('/indexProducts',[ProductController::class,'update {$store,$product}'])->name('pupdate'); //llama la primera funcion del controlador
-Route::get('/indexProducts',[ProductController::class,'show'])->name('pshow'); //llama la primera funcion del controlador
-Route::get('/indexProducts',[ProductController::class,'destroy {$product}'])->name('pdestroy'); //llama la primera funcion del controlador
+Route::get('/createProducts',[ProductController::class,'create'])->name('pcreate'); //llama la primera funcion del controlador
+Route::post('/storeProducts/{store}',[ProductController::class,'store'])->name('pstore'); //llama la primera funcion del controlador
+Route::get('/editProducts/{product}/edit',[ProductController::class,'edit'])->name('pedit'); //llama la primera funcion del controlador
+Route::put('/updateProducts/{product}',[ProductController::class,'update'])->name('pupdate'); //llama la primera funcion del controlador
+Route::get('/showProducts/{product}',[ProductController::class,'show'])->name('pshow'); //llama la primera funcion del controlador
+Route::delete('/destroyProducts/{product}',[ProductController::class,'destroy'])->name('pdestroy'); //llama la primera funcion del controlador
+*/
 
-
+//Ruta Tipo Recursos para métodos REST, que permiten crear las rutas para un CRUD de las 7 funciones de un controller.
 Route::resource('/products',ProductController::class);//Es igual a las lineas que se ejecutaron antes del create,index,update,edit...etc.
 
 Route::get('/clients',function(){
