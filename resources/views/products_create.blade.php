@@ -1,7 +1,10 @@
 @extends('layout.main_template')
 @section('content')
+@incluide('fragments.formstyles')
+
 <h1> Create de Productor</h1>
 <form action="{{route('products.store')}}" method="POST">
+    @csrf
     <label for="" class="">Nombre Producto</label>
     <input type="text" name="nameProduct">
 
