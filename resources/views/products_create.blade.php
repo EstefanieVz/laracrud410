@@ -9,8 +9,12 @@
     <input type="text" name="nameProduct">
 
     <label for="" class="">Marca</label>
-    <input type="text" name="brand">
-
+    <select name="brand_id" id="">
+        <option value="">Selecciona. . .</option>
+        
+        <option value="TODO">Marcas</option>
+    </select>
+    <br>
     <label for="" class="">Cantidad</label>
     <input type="number" name="stock">
 
