@@ -14,7 +14,9 @@ class ProductController extends Controller
     public function index()
     {
         //
-        return view('products_index');
+        $products =Product::get();//Obtener todos los datos de la tabla
+
+        return view('products_index',compact('products'));
         
 
     }
@@ -36,10 +38,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        echo "Store Productos";
+        //echo "registro Realizado";
         //dd($request);
         Product::create($request->all());
+        return to_route('products.index')->with ('status','Producto Registrado');
     }
 
     /**

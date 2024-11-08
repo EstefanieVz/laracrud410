@@ -3,7 +3,7 @@
     box-sizing:border-box;
     }
     form{
-    width:300px;
+    width:350px;
     height: 400px;
     padding-inline:20px;
     border-radius: 12px;

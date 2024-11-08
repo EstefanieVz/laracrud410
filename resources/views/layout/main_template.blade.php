@@ -10,6 +10,10 @@
 <body style="background-color:#d0bfe0" >
     
     @include('fragments.navbar')
+    
+    @if(session('status'))
+    {{session('status')}}
+    @endif
 
     @yield('content')
 </body>
