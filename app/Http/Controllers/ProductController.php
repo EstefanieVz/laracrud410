@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,10 @@ class ProductController extends Controller
     public function create()
     {
         //echo "Create Productos";
-        return view('products_create');
+        //$brands = Brand::get(); //Para obtener todos los datos de una tabla
+        $brands=Brand::pluck('id','brand');
+        //dd($brands);//Verificar que los datos se esten extrallendo
+        return view('products_create',compact('brands'));
     }
 
     /**

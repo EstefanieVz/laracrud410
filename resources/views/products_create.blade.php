@@ -1,18 +1,22 @@
 @extends('layout.main_template')
 @section('content')
-@incluide('fragments.formstyles')
+@include('fragments.formstyle')
 
-<h1> Create de Productor</h1>
+<h1 id="titulo"> Create de Productor</h1>
 <form action="{{route('products.store')}}" method="POST">
     @csrf
+    <br>
     <label for="" class="">Nombre Producto</label>
     <input type="text" name="nameProduct">
 
     <label for="" class="">Marca</label>
+    <br>
     <select name="brand_id" id="">
         <option value="">Selecciona. . .</option>
+        @foreach ($brands as $brand => $id)
+        <option value="{{$id}}">{{$brand}}</option>     
+        @endforeach
         
-        <option value="TODO">Marcas</option>
     </select>
     <br>
     <label for="" class="">Cantidad</label>

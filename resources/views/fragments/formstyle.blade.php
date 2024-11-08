@@ -4,11 +4,15 @@
     }
     form{
     width:300px;
+    height: 400px;
     padding-inline:20px;
     border-radius: 12px;
     margin-block:auto;
     margin-inline:auto;
-    background-color:#447a6e;
+    background-color:#9d4edd;
+    }
+    #titulo{
+        text-align: center;
     }
     form label{
     width:140px;
@@ -22,13 +26,14 @@
     padding-block: 3px;
     border: 1px solid #ffffff;
     border-radius: 3px;
-    background-color: #000;
-    magin-block: 4px;
+    background-color: #2d0355;
+    color: #fff;
+    margin-block: 4px;
     display:flex;
     }
     form button[type="submit"]{
     width:100%;
-    padding8px 16px;
+    padding: 8px 16px;
     margin-block-start: 32px;
     border-radius: 5px;
     display:block;
