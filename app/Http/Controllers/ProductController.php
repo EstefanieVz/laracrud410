@@ -50,7 +50,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
-        echo "Show Productos";
+        
+        return view('products_show',compact('product'));
     }
 
     /**

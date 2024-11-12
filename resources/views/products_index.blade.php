@@ -24,7 +24,7 @@
             <td>{{$p->unit_price}}</td>
             <td>{{$p->imagen}}</td>
             <td>
-                <button><a href="">Mostrar</a></button>
+                <button><a href="{{route("products.show",$p)}}">Mostrar</a></button>
                 <button><a href="">Editar</a></button>
                 <button><a href="">Eliminar</a></button>
             </td>
