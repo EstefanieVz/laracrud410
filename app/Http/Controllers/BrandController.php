@@ -12,7 +12,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -20,7 +20,9 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        $brands=Brand::pluck('id','brand');
+        //dd($brands);//Verificar que los datos se esten extrallendo
+        return view('brands_create',compact('brands'));
     }
 
     /**
@@ -29,6 +31,8 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         //
+        Brand::create($request->all());
+        return to_route('products.index')->with ('status','Marca Registrado');
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,7 @@ Route::delete('/destroyProducts/{product}',[ProductController::class,'destroy'])
 
 //Ruta Tipo Recursos para métodos REST, que permiten crear las rutas para un CRUD de las 7 funciones de un controller.
 Route::resource('/products',ProductController::class);//Es igual a las lineas que se ejecutaron antes del create,index,update,edit...etc.
+Route::resource('/brands',BrandController::class);
 
 Route::get('/clients',function(){
     return view('clients_index');
