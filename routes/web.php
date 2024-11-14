@@ -46,3 +46,5 @@ Route::get('/clients',function(){
 Route::get('/sales',function(){
     return view('sales_index');
 })-> name('sales');
+                                                                                        //nombre de la funcion que se manda a llamar (delete)
+Route::get('/products/{product}/delete',[App\Http\Controllers\ProductController::class,'delete'])->name('products.delete');

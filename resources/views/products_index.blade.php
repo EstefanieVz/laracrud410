@@ -5,6 +5,7 @@
 <button><a href="{{route('products.create')}}">Crear Producto</a></button>
 
 <button><a href="{{route('brands.create')}}">Crear Marcas</a></button>
+<button><a href="{{route('brands.index')}}">Ver Marcas</a></button>
 <br>
 <br><br>
 <table>
@@ -28,11 +29,17 @@
             <td>
                 <button><a href="{{route("products.show",$p)}}">Mostrar</a></button>
                 <button><a href="{{route("products.edit",$p)}}">Editar</a></button>
-                <button><a href="">Eliminar</a></button>
+                <form action="{{route("products.destroy",$p)}}" method="POST">
+                    @method("DELETE")
+                    @csrf
+                    <button type="submit">Eliminar</button>
+                </form>
+                
             </td>
         </tr>
             
         @endforeach
     </tbody>
 </table>
+
 @endsection

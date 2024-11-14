@@ -12,7 +12,9 @@ class BrandController extends Controller
      */
     public function index()
     {
-        
+        $brands =Brand::get();//Obtener todos los datos de la tabla
+
+        return view('brands_index',compact('brands'));
     }
 
     /**
@@ -41,6 +43,7 @@ class BrandController extends Controller
     public function show(Brand $brand)
     {
         //
+        return view('brands_show',compact('brand'));
     }
 
     /**
@@ -49,6 +52,7 @@ class BrandController extends Controller
     public function edit(Brand $brand)
     {
         //
+        echo view('brands_edit',compact('brand'));
     }
 
     /**
@@ -57,6 +61,8 @@ class BrandController extends Controller
     public function update(Request $request, Brand $brand)
     {
         //
+        $brand->update($request->all()); //Actualizamos los datos en la base de datos
+        return to_route('brands.index')->with ('status','Marca Actualizada');
     }
 
     /**
@@ -65,5 +71,7 @@ class BrandController extends Controller
     public function destroy(Brand $brand)
     {
         //
+        $brand->delete();
+        return to_route('brands.index')->with('status','Marca Eliminada');
     }
 }
