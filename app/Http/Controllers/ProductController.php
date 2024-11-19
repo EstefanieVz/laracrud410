@@ -18,7 +18,7 @@ class ProductController extends Controller
         //
         $products =Product::get();//Obtener todos los datos de la tabla
 
-        return view('products_index',compact('products'));
+        return view('admin/products/index',compact('products'));
         
 
     }
@@ -32,7 +32,7 @@ class ProductController extends Controller
         //$brands = Brand::get(); //Para obtener todos los datos de una tabla
         $brands=Brand::pluck('id','brand');
         //dd($brands);//Verificar que los datos se esten extrallendo
-        return view('products_create',compact('brands'));
+        return view('admin/products/create',compact('brands'));
     }
 
     /**
@@ -53,7 +53,7 @@ class ProductController extends Controller
     {
         //
         
-        return view('products_show',compact('product'));
+        return view('admin/products/show',compact('product'));
     }
 
     /**
@@ -63,7 +63,7 @@ class ProductController extends Controller
     {
         //
         $brands=Brand::pluck('id','brand');
-        echo view('products_edit',compact('brands','product'));
+        echo view('admin/products/edit',compact('brands','product'));
         
     }
 
@@ -81,7 +81,7 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      */
     public function delete(Product $product){
-        echo view('products_delete',compact('product'));
+        echo view('admin/products/delete',compact('product'));
     }
     public function destroy(Product $product)
     {

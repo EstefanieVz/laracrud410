@@ -14,7 +14,7 @@ class BrandController extends Controller
     {
         $brands =Brand::get();//Obtener todos los datos de la tabla
 
-        return view('brands_index',compact('brands'));
+        return view('admin/brands/index',compact('brands'));
     }
 
     /**
@@ -24,7 +24,7 @@ class BrandController extends Controller
     {
         $brands=Brand::pluck('id','brand');
         //dd($brands);//Verificar que los datos se esten extrallendo
-        return view('brands_create',compact('brands'));
+        return view('admin/brands/create',compact('brands'));
     }
 
     /**
@@ -43,7 +43,7 @@ class BrandController extends Controller
     public function show(Brand $brand)
     {
         //
-        return view('brands_show',compact('brand'));
+        return view('admin/brands/show',compact('brand'));
     }
 
     /**
@@ -52,7 +52,7 @@ class BrandController extends Controller
     public function edit(Brand $brand)
     {
         //
-        echo view('brands_edit',compact('brand'));
+        echo view('admin/brands/edit',compact('brand'));
     }
 
     /**
