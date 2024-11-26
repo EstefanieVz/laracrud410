@@ -3,7 +3,7 @@
 @include('fragments.formstyle')
 
 <h1 id="titulo"> Editar Productos</h1>
-<form action="{{route('products.update',$product->id)}}" method="POST">
+<form action="{{route('products.update',$product->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <br>

@@ -3,7 +3,7 @@
 @include('fragments.formstyle')
 
 <h1 id="titulo"> Create de Productos</h1>
-<form action="{{route('products.store')}}" method="POST">
+<form action="{{route('products.store')}}" enctype="multipart/form-data" method="POST">
     @csrf
     <br>
     <label for="" class="">Nombre Producto</label>

@@ -31,6 +31,8 @@ class ProductController extends Controller
         //echo "Create Productos";
         //$brands = Brand::get(); //Para obtener todos los datos de una tabla
         $brands=Brand::pluck('id','brand');
+
+        
         //dd($brands);//Verificar que los datos se esten extrallendo
         return view('admin/products/create',compact('brands'));
     }
@@ -42,7 +44,17 @@ class ProductController extends Controller
     {
         //echo "registro Realizado";
         //dd($request);
-        Product::create($request->all());
+
+        $data=$request->all();//Pasamos todos los datos
+        if(isset($data["imagen"])){//Si imagen es diferente de vacio
+            //Cambiar nombre al archivo a ugardar
+            //Variable de imagen  se le asiagna un nuevo nombre(el nombre del archivo.tiempo/fecha/hora. tipo(jpeg,jpg,png))
+            $data["imagen"]=$filename=time().".".$data["imagen"]->extension();
+            //Guardar imagen en la carpeta publica
+            $request->imagen->move(public_path("image/products"),$filename);
+        }
+
+        Product::create($data);
         return to_route('products.index')->with ('status','Producto Registrado');
     }
 
@@ -52,7 +64,6 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
-        
         return view('admin/products/show',compact('product'));
     }
 
@@ -73,7 +84,16 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
-        $product->update($request->all()); //Actualizamos los datos en la base de datos
+        $data=$request->all();//Pasamos todos los datos
+        if(isset($data["imagen"])){//Si imagen es diferente de vacio
+            //Cambiar nombre al archivo a ugardar
+            //Variable de imagen  se le asiagna un nuevo nombre(el nombre del archivo.tiempo/fecha/hora. tipo(jpeg,jpg,png))
+            $data["imagen"]=$filename=time().".".$data["imagen"]->extension();
+            //Guardar imagen en la carpeta publica
+            $request->imagen->move(public_path("image/products"),$filename);
+        }
+
+        $product->update($data); //Actualizamos los datos en la base de datos
         return to_route('products.index')->with ('status','Producto Actualizado');
     }
 
