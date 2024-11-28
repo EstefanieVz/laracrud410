@@ -3,6 +3,15 @@
 @include('fragments.formstyle')
 
 <h1 id="titulo"> Create de Productos</h1>
+
+@if ($errors->any())
+    @foreach ($errors->all() as $e)
+        <div class="error">
+            {{$e}}
+        </div>
+    @endforeach
+@endif
+
 <form action="{{route('products.store')}}" enctype="multipart/form-data" method="POST">
     @csrf
     <br>

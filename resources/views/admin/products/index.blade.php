@@ -11,7 +11,7 @@
 <table>
     <thead>
         <th> Nombre del producto </th>
-        <th> Marca ID </th>
+        <th> Marca </th>
         <th> Cantidad </th>
         <th> Precio </th>
         <th> Imagen </th>
@@ -22,7 +22,8 @@
         @foreach ($products as $p)
         <tr>
             <td>{{$p->nameProduct}}</td>
-            <td>{{$p->brand_id}}</td>
+            
+            <td>{{$p->brand->brand}}</td>
             <td>{{$p->stock}}</td>
             <td>{{$p->unit_price}}</td>
             <td><img src="/image/products/{{$p->imagen}}" width="60" alt="Producto"></td>
@@ -41,5 +42,7 @@
         @endforeach
     </tbody>
 </table>
+
+{{$products->links()}}<!-- GENERA LOS ENLACES DE CADA PÁGINA-->
 
 @endsection

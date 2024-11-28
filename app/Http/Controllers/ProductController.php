@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\Products\StoreRequest;
 
 use function PHPSTORM_META\override;
 
@@ -15,8 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        $products =Product::get();//Obtener todos los datos de la tabla
+        //$products =Product::get();//Obtener todos los datos de la tabla
+        $products = Product::paginate(3);
 
         return view('admin/products/index',compact('products'));
         
@@ -40,7 +41,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //echo "registro Realizado";
         //dd($request);
