@@ -8,7 +8,7 @@
 <button><a href="{{route('brands.index')}}">Ver Marcas</a></button>
 <br>
 <br><br>
-<table>
+<table class="table table-hover">
     <thead>
         <th> Nombre del producto </th>
         <th> Marca </th>
@@ -28,12 +28,19 @@
             <td>{{$p->unit_price}}</td>
             <td><img src="/image/products/{{$p->imagen}}" width="60" alt="Producto"></td>
             <td>
-                <button><a href="{{route("products.show",$p)}}">Mostrar</a></button>
-                <button><a href="{{route("products.edit",$p)}}">Editar</a></button>
+                <a href="{{route("products.show",$p)}}" class="btn btn-outline-primary">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+
+                <a href="{{route("products.edit",$p)}}" class="btn btn-outline-success">
+                    <i class="fa-solid fa-pen"></i>
+                </a>
+
+                
                 <form action="{{route("products.destroy",$p)}}" method="POST">
                     @method("DELETE")
                     @csrf
-                    <button type="submit">Eliminar</button>
+                    <button type="submit" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
                 </form>
                 
             </td>
