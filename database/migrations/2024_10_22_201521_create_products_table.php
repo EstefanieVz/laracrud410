@@ -18,7 +18,7 @@ return new class extends Migration
             //$table->string('brand', 40)->nullable()->default('Marca');
             $table->integer('stock')->unsigned()->nullable()->default(12);
             $table->decimal('unit_price', 6, 2)->nullable()->default(123.45);
-            $table->string('image', 100)->nullable()->default('imagen');
+            $table->string('image', 100)->nullable()->default('image');
             $table->timestamps();
 
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade')->onUpdate('cascade');

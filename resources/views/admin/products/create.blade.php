@@ -35,7 +35,7 @@
     <input type="text" name="unit_price">
 
     <label for="" class="">Imagen</label>
-    <input type="file" name="imagen">
+    <input type="file" name="image">
 
     <button type="submit">Registrar</button>
 </form>
