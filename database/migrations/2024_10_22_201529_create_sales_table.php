@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('sale_date')->nullable();
             $table->timestamps();
             
-            $table->foreign('client_id')->references('client_id')->on('clients')->onDelete('cascade');
-            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
