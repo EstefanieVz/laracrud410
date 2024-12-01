@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sales', function (Blueprint $table) {
-            $table->id('sale_id');
+            $table->id();
             $table->foreignId('client_id')->nullable();
             $table->foreignId('product_id')->nullable();
             $table->date('sale_date')->nullable();
