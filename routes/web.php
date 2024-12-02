@@ -41,6 +41,7 @@ Route::resource('/products',ProductController::class);//Es igual a las lineas qu
 Route::get('/products/{product}/delete',[App\Http\Controllers\ProductController::class,'delete'])->name('products.delete');
 Route::resource('/brands',BrandController::class);
 Route::resource('/clients',App\Http\Controllers\ClientController::class);
+Route::resource('/addresses',App\Http\Controllers\AddressController::class);
 Route::resource('/sales',App\Http\Controllers\SaleController::class);
 /*
 Route::get('/clients',function(){

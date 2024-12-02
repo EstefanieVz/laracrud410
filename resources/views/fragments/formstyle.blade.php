@@ -11,6 +11,7 @@
     margin-inline:auto;
     background-color:#9d4edd;
     }
+  
     #titulo{
         text-align: center;
     }

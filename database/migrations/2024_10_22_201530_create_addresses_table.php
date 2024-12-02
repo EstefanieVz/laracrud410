@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('town', 50)->nullable()->default('Gutierez Zamora');
             $table->string('state', 50)->nullable()->default('Veracruz');
             $table->string('country', 50)->nullable()->default('Mexico');
+            $table->bigInteger('postal_code')->nullable()->default('9559');
             $table->foreignId('client_id');
             $table->string('references', 99)->nullable()->default('parque central');
             $table->timestamps();

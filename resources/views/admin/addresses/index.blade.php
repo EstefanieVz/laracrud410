@@ -59,40 +59,51 @@
     }
 </style>
 
-<h2>Index Clientes</h2>
+<h2>Index Direcciones</h2>
 <br>
-<button><a href="{{route('clients.create')}}">Crear Clientes</a></button>
+<button><a href="{{route('addresses.create')}}">Crear Dirección</a></button>
 
-<button><a href="{{route('addresses.create')}}">Crear Direcciones</a></button>
-<button><a href="{{route('addresses.index')}}">Ver Direcciones</a></button>
+<button><a href="{{route('clients.create')}}">Crear Clientes</a></button>
+<button><a href="{{route('clients.index')}}">Ver Clientes</a></button>
 <br>
 <br><br>
 <div class="container">
     <div class="tbl_container">
-        <h2>Clientes</h2>
+        <h2>DIRECCIONES</h2>
 <table class="tbl">
     <thead>
-        <th> Nombre </th>
-        <th> Apellido Paterno </th>
-        <th> Apellido Materno </th>
-        <th> Correo </th>
-        <th> Telefono </th>
+        <th> Calle</th>
+        <th> Cliente </th>
+        <th> No. Interno </th>
+        <th> No. Externo </th>
+        <th> Vecindario </th>
+        <th> Ciudad </th>
+        <th> Estado </th>
+        <th> País </th>
+        <th> Código Postal </th>
+        <th> Referencias </th>
         <th> Acciones </th>
     </thead>
 
     <tbody>
-        @foreach ($clients as $c)
+        @foreach ($addresses as $a)
         <tr>
-            <td>{{$c->name}}</td>
+            <td>{{$a->street}}</td>
             
-            <td>{{$c->last_name}}</td>
-            <td>{{$c->second_last_name}}</td>
-            <td>{{$c->email}}</td>
-            <td>{{$c->phone}}</td>
+            <td>{{$a->client->client}}</td>
+            <td>{{$a->internal_num}}</td>
+            <td>{{$a->external_num}}</td>
+            <td>{{$a->neighborhood}}</td>
+            <td>{{$a->town}}</td>
+            <td>{{$a->state}}</td>
+            <td>{{$a->country}}</td>
+            <td>{{$a->postal_code}}</td>
+            <td>{{$a->references}}</td>
+            
             <td>
-                <button><a class="fa-solid fa-magnifying-glass" href="{{route("clients.show",$c)}}"></a></button>
-                <button><a class="fa-solid fa-pen-to-square" href="{{route("clients.edit",$c)}}"></a></button>
-                <form action="{{route("clients.destroy",$c)}}" method="POST">
+                <button><a class="fa-solid fa-magnifying-glass" href="{{route("addresses.show",$a)}}"></a></button>
+                <button><a class="fa-solid fa-pen-to-square" href="{{route("addresses.edit",$a)}}"></a></button>
+                <form action="{{route("addresses.destroy",$a)}}" method="POST">
                     @method("DELETE")
                     @csrf
                    <!-- <button class="btn-trash" type="submit">Eliminar</button> -->
@@ -109,6 +120,6 @@
 </table>
 </div>
 </div>
-{{$clients->links()}}<!-- GENERA LOS ENLACES DE CADA PÁGINA-->
+{{$addresses->links()}}<!-- GENERA LOS ENLACES DE CADA PÁGINA-->
 
 @endsection

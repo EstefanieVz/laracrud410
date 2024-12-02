@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Address;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -14,7 +15,7 @@ class ClientController extends Controller
     {
         //
         $clients = Client::paginate(3);
-        return view('admin/clients/index',compact('products'));
+        return view('admin/clients/index',compact('clients'));
     }
 
     /**
@@ -23,7 +24,9 @@ class ClientController extends Controller
     public function create()
     {
         //
+ 
         
+        return view('admin/clients/create');
     }
 
     /**
@@ -31,7 +34,9 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //falta el storereguest
+        Client::create($request->all());
+        return to_route('clients.index')->with ('status','Cliente Registrado');
     }
 
     /**
@@ -40,6 +45,7 @@ class ClientController extends Controller
     public function show(Client $client)
     {
         //
+        return view('admin/clients/show',compact('client'));
     }
 
     /**
@@ -48,6 +54,7 @@ class ClientController extends Controller
     public function edit(Client $client)
     {
         //
+        echo view('admin/clients/edit',compact('client'));
     }
 
     /**
@@ -56,6 +63,9 @@ class ClientController extends Controller
     public function update(Request $request, Client $client)
     {
         //
+        $data=$request->all();
+        $client->update($data); //Actualizamos los datos en la base de datos
+        return to_route('clients.index')->with ('status','Cliente Actualizado');
     }
 
     /**
@@ -64,5 +74,7 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         //
+        $client->delete();
+        return to_route('clients.index')->with('status','Cliente Eliminado');
     }
 }
