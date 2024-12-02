@@ -87,12 +87,12 @@ class ProductController extends Controller
     {
         //
         $data=$request->all();//Pasamos todos los datos
-        if(isset($data["imagen"])){//Si imagen es diferente de vacio
+        if(isset($data["image"])){//Si imagen es diferente de vacio
             //Cambiar nombre al archivo a ugardar
             //Variable de imagen  se le asiagna un nuevo nombre(el nombre del archivo.tiempo/fecha/hora. tipo(jpeg,jpg,png))
-            $data["imagen"]=$filename=time().".".$data["imagen"]->extension();
+            $data["image"]=$filename=time().".".$data["image"]->extension();
             //Guardar imagen en la carpeta publica
-            $request->imagen->move(public_path("image/products"),$filename);
+            $request->image->move(public_path("image/products"),$filename);
         }
 
         $product->update($data); //Actualizamos los datos en la base de datos

@@ -13,7 +13,8 @@ class ClientController extends Controller
     public function index()
     {
         //
-        return view('admin/clients/index');
+        $clients = Client::paginate(3);
+        return view('admin/clients/index',compact('products'));
     }
 
     /**
@@ -22,6 +23,7 @@ class ClientController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
