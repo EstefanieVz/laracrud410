@@ -8,7 +8,7 @@
     @method('PUT')
     <br>
     <label for="" class="">Nombre Producto</label>
-    <input type="text" name="nameProduct"  value="{{$product->nameProduct}}">
+    <input type="text" name="name_product"  value="{{$product->name_product}}">
 
     <label for="" class="">Marca</label>
     <br>
@@ -28,7 +28,7 @@
     <input type="text" name="unit_price" value="{{$product->unit_price}}">
 
     <label for="" class="">Imagen</label>
-    <input type="file" name="imagen">
+    <input type="file" name="image">
 
     <button type="submit">Registrar</button>
 </form>

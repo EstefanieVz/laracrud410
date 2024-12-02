@@ -2,6 +2,7 @@
 
 @section('content')
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     .container{
         max-width: 1840px;
@@ -36,7 +37,9 @@
         text-align: center;
         border: 1px solid #aab7b8;
     }
-
+    a{
+        text-decoration: none;
+    }
     @media(max-width: 768px){
         .tbl thead{
             display: none;
@@ -80,19 +83,22 @@
     <tbody>
         @foreach ($products as $p)
         <tr>
-            <td>{{$p->nameProduct}}</td>
+            <td>{{$p->name_product}}</td>
             
             <td>{{$p->brand->brand}}</td>
             <td>{{$p->stock}}</td>
             <td>{{$p->unit_price}}</td>
             <td><img src="/image/products/{{$p->image}}" width="60" alt="Producto"></td>
             <td>
-                <button class="btn-show"><a href="{{route("products.show",$p)}}">Mostrar</a></button>
-                <button class="btn-edit"><a href="{{route("products.edit",$p)}}">Editar</a></button>
+                <button><a class="fa-solid fa-magnifying-glass" href="{{route("products.show",$p)}}"></a></button>
+                <button><a class="fa-solid fa-pen-to-square" href="{{route("products.edit",$p)}}"></a></button>
                 <form action="{{route("products.destroy",$p)}}" method="POST">
                     @method("DELETE")
                     @csrf
-                    <button class="btn-trash" type="submit">Eliminar</button>
+                   <!-- <button class="btn-trash" type="submit">Eliminar</button> -->
+                    <button class="fa-solid fa-trash" type="submit">
+                       
+                    </button >
                 </form>
                 
             </td>

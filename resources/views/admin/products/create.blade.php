@@ -16,7 +16,7 @@
     @csrf
     <br>
     <label for="" class="">Nombre Producto</label>
-    <input type="text" name="nameProduct">
+    <input type="text" name="name_product">
 
     <label for="" class="">Marca</label>
     <br>

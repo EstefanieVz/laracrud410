@@ -10,7 +10,7 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable=[
-    'nameProduct','brand_id','stock','unit_price','image'];
+    'name_product','brand_id','stock','unit_price','image'];
 
                     //funcion brand
     public function brand():BelongsTo{

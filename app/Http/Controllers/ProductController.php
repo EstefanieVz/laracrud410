@@ -74,6 +74,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        
         $brands=Brand::pluck('id','brand');
         echo view('admin/products/edit',compact('brands','product'));
         
