@@ -19,7 +19,7 @@
     border-radius: 12px;
     margin-block:auto;
     margin-inline:auto;
-    background-color:#9d4edd;
+    background-color:#f06575;
     }
     </style>
 <form action="{{route('addresses.store')}}" enctype="multipart/form-data" method="POST" class="formregistro">

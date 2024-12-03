@@ -13,7 +13,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands =Brand::get();//Obtener todos los datos de la tabla
+        $brands = Brand::paginate(3);
 
         return view('admin/brands/index',compact('brands'));
     }

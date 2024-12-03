@@ -6,7 +6,7 @@
   width:200px;
   height: 280px;
   text-align: justify;
-  background-color:#9d4edd;
+  background-color:#f06575;
   }
   </style>
 </style>

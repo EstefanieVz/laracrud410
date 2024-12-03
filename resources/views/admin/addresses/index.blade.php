@@ -1,9 +1,12 @@
 @extends('layout.main_template')
 
 @section('content')
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
+    .colore{
+        background: #f06575;
+    }
     .topcentral{
         text-align: center;
         margin-block:auto;
@@ -12,7 +15,7 @@
     .container{
         max-width: 1840px;
         width: 100%;
-        background: #fff;
+        background:#f0dddf;
         box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
     }
     .container h2{
@@ -25,22 +28,22 @@
         border-collapse: collapse;
     }
     .tbl thead{
-        background: #424949;
-        color: #fff;
+        background: #f06c7c;
+        color: #000000;
     }
     .tbl thead th{
         font-size: 0.9rem;
         padding: 0.8rem;
         letter-spacing: 0.2rem;
         vertical-align: top;
-        border: 1px solid #aab7b8;
+        border: 1px solid #f09ca6;
     }
     .tbl tbody tr td{
         font-size: 1rem;
         letter-spacing: 0.2rem;
         font-weight: normal;
         text-align: center;
-        border: 1px solid #aab7b8;
+        border: 1px solid #f09ca6
     }
     a{
         text-decoration: none;
@@ -64,7 +67,10 @@
     }
 </style>
 <div class="topcentral">
-<h2>DIRECCIONES DE LOS CLIENTES</h2>
+    
+        <h2>DIRECCIONES DE LOS CLIENTES</h2>
+
+
 <br>
 <button><a href="{{route('addresses.create')}}">Crear Dirección</a></button>
 
@@ -75,10 +81,12 @@
 <br><br>
 <div class="container">
     <div class="tbl_container">
+        <div class="colore">
         <h2>Direcciones</h2>
+        </div>
 <table class="tbl">
     <thead>
-        <th> Calle</th>
+        <th > Calle</th>
         <th> Cliente </th>
         <th> No. Interno </th>
         <th> No. Externo </th>
