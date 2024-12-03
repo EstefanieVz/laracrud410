@@ -14,6 +14,6 @@ class Address extends Model
     ];
 
     public function client():BelongsTo{
-        return $this->belongsTo(Brand::class,'client_id');
+        return $this->belongsTo(Client::class,'client_id');
     }
 }

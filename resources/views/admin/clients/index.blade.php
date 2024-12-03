@@ -4,6 +4,11 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
+    .topcentral{
+        text-align: center;
+        margin-block:auto;
+        margin-inline:auto;
+    }
     .container{
         max-width: 1840px;
         width: 100%;
@@ -58,14 +63,16 @@
         }
     }
 </style>
-
-<h2>Index Clientes</h2>
+<div class="topcentral">
+<h2>CLIENTES DE DULMEX</h2>
 <br>
 <button><a href="{{route('clients.create')}}">Crear Clientes</a></button>
 
 <button><a href="{{route('addresses.create')}}">Crear Direcciones</a></button>
 <button><a href="{{route('addresses.index')}}">Ver Direcciones</a></button>
 <br>
+
+</div>
 <br><br>
 <div class="container">
     <div class="tbl_container">
@@ -92,14 +99,7 @@
             <td>
                 <button><a class="fa-solid fa-magnifying-glass" href="{{route("clients.show",$c)}}"></a></button>
                 <button><a class="fa-solid fa-pen-to-square" href="{{route("clients.edit",$c)}}"></a></button>
-                <form action="{{route("clients.destroy",$c)}}" method="POST">
-                    @method("DELETE")
-                    @csrf
-                   <!-- <button class="btn-trash" type="submit">Eliminar</button> -->
-                    <button class="fa-solid fa-trash" type="submit">
-                       
-                    </button >
-                </form>
+                <button><a class="fa-solid fa-trash" href="{{route("clients.delete",$c)}}"></a></button>
                 
             </td>
         </tr>

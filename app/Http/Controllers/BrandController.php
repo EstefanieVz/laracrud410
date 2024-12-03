@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Brands\StoreRequest;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,7 @@ class BrandController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
         Brand::create($request->all());
@@ -68,6 +69,9 @@ class BrandController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    public function delete(Brand $brand){
+        echo view('admin/brands/delete',compact('brand'));
+    }
     public function destroy(Brand $brand)
     {
         //

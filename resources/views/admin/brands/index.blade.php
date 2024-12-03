@@ -2,6 +2,11 @@
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
+    .topcentral{
+        text-align: center;
+        margin-block:auto;
+        margin-inline:auto;
+    }
     .container{
         max-width: 1840px;
         width: 100%;
@@ -56,17 +61,19 @@
         }
     }
 </style>
-<h2>Index Marcas</h2>
+<div class="topcentral">
+<h2>MARCAS DULMEX</h2>
 <br>
 <button><a href="{{route('products.create')}}">Crear Producto</a></button>
 
 <button><a href="{{route('brands.create')}}">Crear Marcas</a></button>
-<button><a href="{{route('brands.index')}}">Ver Marcas</a></button>
+<button><a href="{{route('products.index')}}">Ver Productos</a></button>
 <br>
+</div>
 <br><br>
 <div class="container">
     <div class="tbl_container">
-<h2>Detalles de la marca</h2>
+<h2>Detalles de la Marca</h2>
 <table class="tbl">
     <thead>
         <th> Nombre de la marca </th>
@@ -82,12 +89,7 @@
             <td>
                 <button><a class="fa-solid fa-magnifying-glass" href="{{route("brands.show",$b)}}"></a></button>
                 <button><a class="fa-solid fa-pen-to-square" href="{{route("brands.edit",$b)}}"></a></button>
-                <form action="{{route("brands.destroy",$b)}}" method="POST">
-                    @method("DELETE")
-                    @csrf
-                    <button class="fa-solid fa-trash" type="submit"></button>
-                </form>
-                
+                <button><a class="fa-solid fa-trash" href="{{route("brands.delete",$b)}}"></a></button>
             </td>
         </tr>
             

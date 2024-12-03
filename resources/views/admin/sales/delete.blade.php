@@ -4,15 +4,15 @@
 <center>
     <table>
         <thead>
-            <h3>¿Estás seguro de que quieres eliminar al cliente {{$client->name}}?</h3>
+            <h3>¿Estás seguro de que quieres eliminar la venta?</h3>
         </thead>
         <tbody>
             <tr>
-                <td><form action="{{route('clients.index')}}">
+                <td><form action="{{route('sales.index')}}">
                 <button type="submit">No</button>    
                 </form></td>
                 <td>
-                    <form action="{{route('clients.destroy',$client->id)}}" method="POST">
+                    <form action="{{route('sales.destroy',$sale->id)}}" method="POST">
                         @method("DELETE")
                         @csrf
                         <button type="submit">Si</button>

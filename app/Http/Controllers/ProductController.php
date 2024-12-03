@@ -105,9 +105,9 @@ class ProductController extends Controller
     public function delete(Product $product){
         echo view('admin/products/delete',compact('product'));
     }
+    
     public function destroy(Product $product)
     {
-        //
         $product->delete();
         return to_route('products.index')->with('status','Producto Eliminado');
     }

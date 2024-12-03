@@ -1,9 +1,20 @@
 @extends('layout.main_template')
 @section('content')
 @include('fragments.formstyle')
-
+<style>
+    .formregistro{
+  width:250px;
+  height: 600px;
+  padding-inline:20px;
+  border-radius: 12px;
+  margin-block:auto;
+  margin-inline:auto;
+  background-color:#9d4edd;
+  }
+  </style>
 <h1 id="titulo"> Editar Direcciones</h1>
-<form action="{{route('addresses.update',$address->id)}}" method="POST" enctype="multipart/form-data">
+
+<form action="{{route('addresses.update',$address->id)}}" method="POST" enctype="multipart/form-data" class="formregistro">
     @csrf
     @method('PUT')
     <br>
@@ -11,13 +22,13 @@
     <input type="text" name="street" value="{{$address->street}}">
 
 
-    <label for="" class="">Marca</label>
+    <label for="" class="">Cliente</label>
     <br>
     <select name="client_id" id="">
         <option value="">Selecciona. . .</option>
 
         @foreach ($clients as $client => $id)
-        <option {{$address->client_id==$id ? 'selected' : ''}} value="{{$id}}">{{$name}}</option>     
+        <option {{$address->client_id==$id ? 'selected' : ''}} value="{{$id}}">{{$client}}</option>     
         @endforeach
         
     </select>

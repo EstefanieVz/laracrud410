@@ -39,6 +39,10 @@ Route::delete('/destroyProducts/{product}',[ProductController::class,'destroy'])
 Route::resource('/products',ProductController::class);//Es igual a las lineas que se ejecutaron antes del create,index,update,edit...etc.
                                    //nombre de la funcion que se manda a llamar (delete)
 Route::get('/products/{product}/delete',[App\Http\Controllers\ProductController::class,'delete'])->name('products.delete');
+Route::get('/addresses/{address}/delete',[App\Http\Controllers\AddressController::class,'delete'])->name('addresses.delete');
+Route::get('/brands/{brand}/delete',[App\Http\Controllers\BrandController::class,'delete'])->name('brands.delete');
+Route::get('/clients/{client}/delete',[App\Http\Controllers\ClientController::class,'delete'])->name('clients.delete');
+Route::get('/sales/{sale}/delete',[App\Http\Controllers\SaleController::class,'delete'])->name('sales.delete');
 Route::resource('/brands',BrandController::class);
 Route::resource('/clients',App\Http\Controllers\ClientController::class);
 Route::resource('/addresses',App\Http\Controllers\AddressController::class);

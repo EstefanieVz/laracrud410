@@ -1,9 +1,19 @@
 @extends('layout.main_template')
 @section('content')
 @include('fragments.formstyle')
-
+<style>
+    .formregistro{
+  width:250px;
+  height: 200px;
+  padding-inline:20px;
+  border-radius: 12px;
+  margin-block:auto;
+  margin-inline:auto;
+  background-color:#9d4edd;
+  }
+  </style>
 <h1 id="titulo"> Create de Marcas</h1>
-<form action="{{route('brands.store')}}" method="POST">
+<form action="{{route('brands.store')}}" method="POST" class="formregistro">
     @csrf
     <br>
     <label for="" class="">Marca</label>

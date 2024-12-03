@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Client\StoreRequest;
 use App\Models\Client;
 use App\Models\Address;
 use Illuminate\Http\Request;
@@ -24,18 +25,17 @@ class ClientController extends Controller
     public function create()
     {
         //
- 
-        
         return view('admin/clients/create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //falta el storereguest
-        Client::create($request->all());
+        $data=$request->all();
+        Client::create($data);
         return to_route('clients.index')->with ('status','Cliente Registrado');
     }
 
@@ -71,6 +71,9 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    public function delete(Client $client){
+        echo view('admin/clients/delete',compact('client'));
+    }
     public function destroy(Client $client)
     {
         //

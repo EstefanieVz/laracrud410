@@ -40,6 +40,11 @@
     a{
         text-decoration: none;
     }
+    .topcentral{
+        text-align: center;
+        margin-block:auto;
+        margin-inline:auto;
+    }
     @media(max-width: 768px){
         .tbl thead{
             display: none;
@@ -59,17 +64,19 @@
     }
 </style>
 
-<h2>Index Products</h2>
+<div class="topcentral">
+<h2>¡MIRA NUESTROS PRODUCTOS!</h2>
 <br>
 <button><a href="{{route('products.create')}}">Crear Producto</a></button>
 
 <button><a href="{{route('brands.create')}}">Crear Marcas</a></button>
 <button><a href="{{route('brands.index')}}">Ver Marcas</a></button>
 <br>
+</div>
 <br><br>
 <div class="container">
     <div class="tbl_container">
-        <h2>PRODUCTOS EN VENTA</h2>
+        <h2>Productos en Venta</h2>
 <table class="tbl">
     <thead>
         <th> Nombre del producto </th>
@@ -92,14 +99,7 @@
             <td>
                 <button><a class="fa-solid fa-magnifying-glass" href="{{route("products.show",$p)}}"></a></button>
                 <button><a class="fa-solid fa-pen-to-square" href="{{route("products.edit",$p)}}"></a></button>
-                <form action="{{route("products.destroy",$p)}}" method="POST">
-                    @method("DELETE")
-                    @csrf
-                   <!-- <button class="btn-trash" type="submit">Eliminar</button> -->
-                    <button class="fa-solid fa-trash" type="submit">
-                       
-                    </button >
-                </form>
+                <button><a class="fa-solid fa-trash" href="{{route("products.delete",$p)}}"></a></button>
                 
             </td>
         </tr>

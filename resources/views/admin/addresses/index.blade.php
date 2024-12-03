@@ -4,6 +4,11 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
+    .topcentral{
+        text-align: center;
+        margin-block:auto;
+        margin-inline:auto;
+    }
     .container{
         max-width: 1840px;
         width: 100%;
@@ -58,18 +63,19 @@
         }
     }
 </style>
-
-<h2>Index Direcciones</h2>
+<div class="topcentral">
+<h2>DIRECCIONES DE LOS CLIENTES</h2>
 <br>
 <button><a href="{{route('addresses.create')}}">Crear Dirección</a></button>
 
 <button><a href="{{route('clients.create')}}">Crear Clientes</a></button>
 <button><a href="{{route('clients.index')}}">Ver Clientes</a></button>
 <br>
+</div>
 <br><br>
 <div class="container">
     <div class="tbl_container">
-        <h2>DIRECCIONES</h2>
+        <h2>Direcciones</h2>
 <table class="tbl">
     <thead>
         <th> Calle</th>
@@ -90,7 +96,7 @@
         <tr>
             <td>{{$a->street}}</td>
             
-            <td>{{$a->client->client}}</td>
+            <td>{{$a->client->name}}</td>
             <td>{{$a->internal_num}}</td>
             <td>{{$a->external_num}}</td>
             <td>{{$a->neighborhood}}</td>
@@ -103,14 +109,7 @@
             <td>
                 <button><a class="fa-solid fa-magnifying-glass" href="{{route("addresses.show",$a)}}"></a></button>
                 <button><a class="fa-solid fa-pen-to-square" href="{{route("addresses.edit",$a)}}"></a></button>
-                <form action="{{route("addresses.destroy",$a)}}" method="POST">
-                    @method("DELETE")
-                    @csrf
-                   <!-- <button class="btn-trash" type="submit">Eliminar</button> -->
-                    <button class="fa-solid fa-trash" type="submit">
-                       
-                    </button >
-                </form>
+                <button><a class="fa-solid fa-trash" href="{{route("addresses.delete",$a)}}"></a></button>
                 
             </td>
         </tr>

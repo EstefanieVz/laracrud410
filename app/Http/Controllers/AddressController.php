@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Addresses\StoreRequest;
 use App\Models\Address;
 use App\Models\Client;
 use Illuminate\Http\Request;
@@ -33,7 +34,7 @@ class AddressController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
         $data=$request->all();
@@ -74,6 +75,9 @@ class AddressController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    public function delete(Address $address){
+        echo view('admin/addresses/delete',compact('address'));
+    }
     public function destroy(Address $address)
     {
         //
